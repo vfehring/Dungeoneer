@@ -1,9 +1,12 @@
 import Image from 'next/image'
-import { useLogger } from 'next-axiom';
+import { Logger } from 'next-axiom';
 
-export default function Home() {
-  const log = useLogger();
+export default async function Home() {
+  
+  const log = new Logger();
   log.info('Dungeoneer Homepage', { project: 'Dungeoneer' });
+
+  await log.flush();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
